@@ -1,0 +1,47 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://part2.lab1.soa/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="CXFofZhangSService" targetNamespace="http://part2.lab1.soa/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://part2.lab1.soa/" elementFormDefault="unqualified" targetNamespace="http://part2.lab1.soa/" version="1.0">
+            <xs:element name="CXFHelloZhangS" type="tns:CXFHelloZhangS"/>
+            <xs:element name="CXFHelloZhangSResponse" type="tns:CXFHelloZhangSResponse"/>
+            <xs:complexType name="CXFHelloZhangS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CXFHelloZhangSResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="CXFHelloZhangSResponse">
+        <wsdl:part element="tns:CXFHelloZhangSResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CXFHelloZhangS">
+        <wsdl:part element="tns:CXFHelloZhangS" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CXFService">
+        <wsdl:operation name="CXFHelloZhangS">
+            <wsdl:input message="tns:CXFHelloZhangS" name="CXFHelloZhangS"> </wsdl:input>
+            <wsdl:output message="tns:CXFHelloZhangSResponse" name="CXFHelloZhangSResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CXFofZhangSServiceSoapBinding" type="tns:CXFService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CXFHelloZhangS">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="CXFHelloZhangS">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CXFHelloZhangSResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CXFofZhangSService">
+        <wsdl:port binding="tns:CXFofZhangSServiceSoapBinding" name="CXFofZhangSPort">
+            <soap:address location="http://localhost:9000/cxfService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

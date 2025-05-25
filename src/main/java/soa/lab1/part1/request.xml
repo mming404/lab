@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:li="http://li.m/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <li:JWSHelloLiM>
+            <arg0>20231415</arg0>
+        </li:JWSHelloLiM>
+    </soapenv:Body>
+</soapenv:Envelope>
